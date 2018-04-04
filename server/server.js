@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5001;
 const bodyParser = require('body-parser');
+const pool = require('./modules/pool.js') //bringing the SQL connection into the server
+
 
 // Configure body-parser
 app.use(bodyParser.urlencoded({extended: true}));

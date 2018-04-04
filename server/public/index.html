@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Angular Task Tracker</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <!-- Angular & Angular Route -->
+    <script src="vendors/angular.min.js"></script>
+    <script src="vendors/angular-route.min.js"></script>
+
+    <script src="scripts/client.js"></script>
+    <!-- Controller sourcing -->
+    <script src="scripts/controllers/projects.controller.js"></script>
+    <script src="scripts/controllers/tasks.controller.js"></script>
 </head>
-<body>
-    <h2>Angular Extended Weekend Proj.</h2>
+<body ng-app="App">
+    <h2>Angular Task Tracker</h2>
+
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#!/tasks">Tasks</a>
+            </li>
+            <li>
+                <a href="#!/projects">Projects</a>
+            </li>
+        </ul>
+    </div>
+    
+    <ng-view></ng-view>
 </body>
 </html>
