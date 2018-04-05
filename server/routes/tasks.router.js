@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const pool = require('../modules/pool');
 
-
 // tasks POST route
 router.post('/', (req,res) => {
     console.log('POST /projects', req.body);
@@ -34,6 +33,22 @@ router.get('/', (req,res) => {
         })  
 })
 
+
+//tasks DELETE 
+router.delete('/:id', (req,res) => {
+    let taskId = req.params.id
+    console.log('in DELETE /tasks, taskId ', taskId);
+    let queryText = `DELETE FROM project_task WHERE id = ${taskId};`;
+    pool.query(queryText)
+        .then((result) => {
+            console.log('successful DELETE /tasks', result);
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('error in /tasks DELETE', error);
+            res.sendStatus(500)
+        })  
+})
 
 
 

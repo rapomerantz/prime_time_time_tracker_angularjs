@@ -33,6 +33,22 @@ router.get('/', (req,res) => {
         })  
 })
 
+//projects DELETE 
+// router.delete('/:id', (req,res) => {
+//     let projectId = req.params.id
+//     console.log('in DELETE /projects, projectId ', projectId);
+//     let queryText = `DELETE FROM project_task WHERE id = ${taskId};`;
+//     pool.query(queryText)
+//         .then((result) => {
+//             console.log('successful DELETE /tasks', result);
+//             res.sendStatus(200);
+//         })
+//         .catch((error) => {
+//             console.log('error in /tasks DELETE', error);
+//             res.sendStatus(500)
+//         })  
+// })
+
 
 
 

@@ -103,5 +103,20 @@ app.service('TrackerService', ['$http', function($http) {
         })
     }
 
+//DELETE task from /tasks
+    self.deleteTask = function (taskId) {
+        console.log('in deleteTask, taskId', taskId);
+        $http.delete('/tasks/' + taskId)
+        .then(function(response) {
+            console.log("successful DELETE /tasks");
+            self.collectProjects(); 
+        })
+        .catch(function(error) {
+            console.log("error in DELETE /tasks", error);
+        })
+    }
+
+
+
 
 }]);

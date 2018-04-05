@@ -1,2 +1,25 @@
 <h1>Tasks View</h1>
 
+<table>
+        <thead>
+            <th>Client</th>
+            <th>Project</th>
+            <th>Task</th>
+            <th>Task Est. Hours</th>
+            <th>Task Actual Hours</th>
+            <th>[REMOVE TASK]</th>
+            <th></th>
+        </thead>
+    
+        <!-- data input goes here -->
+        <tbody ng-repeat="fullObject in vm.fullTable.list">
+            <tr>
+                <td>{{fullObject.client}}</td>
+                <td>{{fullObject.project}}</td>
+                <td>{{fullObject.task}}</td>
+                <td>{{fullObject.est_time}}</td>
+                <td>{{fullObject.act_time}}</td>
+                <td><button ng-click="vm.deleteTask(fullObject.task_id)">Remove Task</button></td>
+            </tr>
+        </tbody>
+</table>
