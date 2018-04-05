@@ -4,18 +4,20 @@
     <thead>
         <th>Client</th>
         <th>Project</th>
-        <th>Total Est. Hours</th>
-        <th>Total Act. Hours</th>
+        <th>Task</th>
+        <th>Task Est. Hours</th>
+        <th>Task Act. Hours</th>
         <th>[Delete Project]</th>
     </thead>
 
     <!-- data input goes here -->
-    <tbody>
+    <tbody ng-repeat="fullObject in vm.fullTable.list">
         <tr>
-            <td>Prime</td>
-            <td>New Site</td>
-            <td>400</td>
-            <td>420</td>
+            <td>{{fullObject.client}}</td>
+            <td>{{fullObject.project}}</td>
+            <td>{{fullObject.task}}</td>
+            <td>{{fullObject.est_time}}</td>
+            <td>{{fullObject.act_time}}</td>
             <td>[Button]</td>
         </tr>
     </tbody>

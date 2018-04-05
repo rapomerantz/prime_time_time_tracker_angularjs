@@ -31,6 +31,26 @@ router.get('/', (req,res) => {
         })  
 })
 
+// client/fullTable GET route
+router.get('/fullTable', (req,res) => {
+    console.log('GET /clients/fullTable');
+    let queryText = `SELECT clients.id as client_id, client, 
+                        client_project.id as project_id, project, 
+                        task, est_time, act_time
+                        FROM client_project 
+                        JOIN clients ON clients.id = client_project.client_id 
+                        JOIN project_task ON client_project.id = project_task.project_id;`;
+    pool.query(queryText)
+        .then((result) => {
+            console.log('successful GET /clients/fullTable');
+            res.send(result.rows);
+        })
+        .catch((error) => {
+            console.log('error in /clients GET', error);
+            res.sendStatus(500)
+        })  
+})
+
 
 
 
