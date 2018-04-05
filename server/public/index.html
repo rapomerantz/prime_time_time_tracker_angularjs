@@ -11,7 +11,9 @@
     <script src="vendors/angular-route.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="scripts/client.js"></script>
-    <!-- Controller sourcing -->
+    <!-- Controller/service sourcing -->
+    <script src="scripts/services/tracker.service.js"></script>
+    <script src="scripts/controllers/input.controller.js"></script>
     <script src="scripts/controllers/clients.controller.js"></script>
     <script src="scripts/controllers/tasks.controller.js"></script>
 </head>
@@ -29,7 +31,10 @@
         </ul>
     </div>
 
-    
+    <div ng-include=" 'views/templates/inputs.html' ">
+
+
+    </div>    
     <ng-view></ng-view>
 
 

@@ -1,5 +1,5 @@
-app.controller('ClientsController', ['TrackerService', '$http', function (TrackerService, $http) {
-    console.log('ClientsController has been loaded');
+app.controller('InputController', ['TrackerService', function (TrackerService) {
+    console.log('InputsController has been loaded');
     let self = this;
 
     self.clientList = TrackerService.clientList; 
@@ -14,21 +14,13 @@ app.controller('ClientsController', ['TrackerService', '$http', function (Tracke
     self.getProjects = TrackerService.getProjects;
     self.getTasks = TrackerService.getTasks;
 
-    self.collectProjects = function () {
-        console.log('collecting projects');
-        
-
-
-    }
-
-
-
 
 
     self.getClients(); 
     self.getProjects(); 
     self.getTasks(); 
 
-//END OF CLIENT CONTROLLER
+
+//END OF INPUT CONTROLLER
 }])
 
