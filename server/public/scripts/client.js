@@ -9,9 +9,9 @@ app.config(function ($routeProvider) {
         .when('/', {
             redirectTo: '/projects'
         })
-        .when('/projects', {
-            templateUrl: 'views/projects.html',
-            controller: 'ProjectsController as vm'
+        .when('/clients', {
+            templateUrl: 'views/clients.html',
+            controller: 'ClientsController as vm'
         })
         .when('/tasks', {
             templateUrl: 'views/tasks.html',

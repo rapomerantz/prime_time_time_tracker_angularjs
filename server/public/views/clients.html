@@ -1,0 +1,33 @@
+<h1>Client/Project View</h1>
+
+<h3>add new client</h3>
+<form ng-submit="vm.addClient(vm.newClient)">
+    <input ng-model="vm.newClient.client" type="text" placeholder="Client">
+    <button type="submit">Submit</button>
+</form>
+
+
+<h3>Add new project:</h3>
+<form ng-submit="vm.addProject(vm.newProject)">
+
+    <select ng-model="vm.newProject.client_id">
+        <option value="">---Select client---</option>
+        <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</option>
+    </select>
+
+    <input ng-model="vm.newProject.project" type="text" placeholder="Name of Project">
+    <button type="submit">Submit</button>
+</form>
+
+
+
+
+<!-- full list of clients -->
+<h3>Full client list</h3>
+<p ng-repeat="client in vm.clientList.list">{{client.id}} {{client.client}}</p>
+
+<!-- full list of projects -->
+<h3>Full project list</h3>
+<p ng-repeat="project in vm.projectList.list">{{project.id}} {{project.project}}</p>
+
+
