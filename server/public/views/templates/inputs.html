@@ -1,57 +1,67 @@
-<div ng-controller="InputController as vm">
-    
-    <h2>INPUTS AND SUCH</h2>
-    
-    <h3>Add new client</h3>
-    <form ng-submit="vm.addClient(vm.newClient)">
-        <input ng-model="vm.newClient.client" type="text" placeholder="Client">
-        <button type="submit">Submit</button>
-    </form>
-    
-    
-    <h3>Add new project:</h3>
-    <form ng-submit="vm.addProject(vm.newProject)">
-    
-        <select ng-model="vm.newProject.client_id">
-            <option value="">---Select client---</option>
-            <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</option>
-        </select>
-    
-        <input ng-model="vm.newProject.project" type="text" placeholder="Name of Project">
-        <button type="submit">Submit</button>
-    </form>
-    
-    <h3>Add new task</h3>
-    <form ng-submit="vm.addTask(vm.newTask)">
-        <!-- select for cleints -->
-            <select ng-model="vm.newTask.client_id">
-                    <option value="">---Select client---</option>
-                    <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</option>
-            </select>    
-        <!-- select for projects -->
-            <select ng-model="vm.newTask.project_id">
-                    <option value="">---Select project---</option>
-                    <option ng-repeat="project in vm.projectList.list" value="{{project.id}}">{{project.project}}</option>
-            </select>    
+<md-content ng-controller="InputController as vm">
+
+
+    <div id="clientProjectInputs">
+
+        <form flex layout="row" ng-submit="vm.addClient(vm.newClient)">
+            <md-input-container class="">
+                <input ng-model="vm.newClient.client" type="text" placeholder="New Client">
+            </md-input-container>
+            <md-button type="submit">Submit</md-button>
+        </form>
         
-        <input ng-model="vm.newTask.task" type="text" placeholder="New task">
-        <input ng-model="vm.newTask.estTime" type="number" placeholder="Estimated Time (in hours)">
-        <input ng-model="vm.newTask.actTime" type="number" placeholder="Actual Time (if applicable)">
-        <button type="submit">Submit Project</button>
-    </form>
-    
-    
-<!-- 
-    <h3>Full client list</h3>
-    <p ng-repeat="client in vm.clientList.list">{{client.id}} {{client.client}}</p>
-    
- 
-    <h3>Full project list</h3>
-    <p ng-repeat="project in vm.projectList.list">{{project.id}} {{project.project}}</p>
+        <form flex layout="row"  ng-submit="vm.addProject(vm.newProject)">
+            <md-input-container class="">
+                <md-select ng-model="vm.newProject.client_id">
+                    <md-option value="">---Select client---</md-option>
+                    <md-option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="">
+                <input ng-model="vm.newProject.project" type="text" placeholder="Name of Project">
+            </md-input-container>
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+
+
+        
+    <div id="addTaskInput">
+
+        <form ng-submit="vm.addTask(vm.newTask)">
+            <!-- select for cleints -->
+            <md-input-container>
+                <md-select ng-model="vm.newTask.client_id">
+                        <md-option value="">---Select client---</md-option>
+                        <md-option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</md-option>
+                </md-select>    
+            </md-input-container>
+
+            <!-- select for projects -->
+            <md-input-container>
+                <md-select ng-model="vm.newTask.project_id">
+                        <md-option value="">---Select project---</md-option>
+                        <md-option ng-repeat="project in vm.projectList.list" value="{{project.id}}">{{project.project}}</md-option>
+                </md-select>    
+            </md-input-container>
+            
+            <md-input-container>
+                <input ng-model="vm.newTask.task" type="text" placeholder="New task">
+            </md-input-container>
+
+            <md-input-container>
+                <input ng-model="vm.newTask.estTime" type="number" placeholder="Estimated Time (in hours)">
+            </md-input-container>
+
+            <md-input-container>
+                <input ng-model="vm.newTask.actTime" type="number" placeholder="Actual Time (if applicable)">
+            </md-input-container>
+
+            <md-button type="submit">Submit Project</md-button>
+        </form>
+        
+    </div>
     
 
-    <h3>Full task list</h3>
-    <p ng-repeat="task in vm.taskList.list">{{task.id}} {{task.task}} {{task.est_time}}  {{task.act_time}}</p>
-     -->
-
-</div>    
+</md-content>    

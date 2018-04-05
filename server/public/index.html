@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Angular Task Tracker</title>
+
+    <link rel="stylesheet" href="styles/angular-material.css">
     <link rel="stylesheet" href="styles/styles.css">
     <!-- Angular & Angular Route -->
     <script src="vendors/angular.min.js"></script>
     <script src="vendors/angular-route.min.js"></script>
+    <script src="vendors/angular-animate.min.js"></script>
+    <script src="vendors/angular-aria.min.js"></script>
+    <script src="vendors/angular-messages.min.js"></script>
+    <script src="vendors/angular-material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="scripts/client.js"></script>
     <!-- Controller/service sourcing -->
@@ -18,15 +24,14 @@
     <script src="scripts/controllers/tasks.controller.js"></script>
 </head>
 <body ng-app="App">
-    <h2>Angular Task Tracker</h2>
 
     <div class="nav">
         <ul>
             <li>
-                <a href="#!/tasks">Tasks</a>
+                <md-button ng-href="#!/tasks">Task View</md-button>
             </li>
             <li>
-                <a href="#!/clients">Clients/Projects</a>
+                <md-button ng-href="#!/clients">Client View</md-button>
             </li>
         </ul>
     </div>

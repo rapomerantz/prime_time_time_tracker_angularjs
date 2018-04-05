@@ -1,9 +1,14 @@
-let app = angular.module('App', ['ngRoute']); 
+let app = angular.module('App', ['ngRoute', 'ngMaterial']); 
 
 
 
-app.config(function ($routeProvider) {
+app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $mdThemingProvider) {
     console.log('Route config loaded');
+
+
+    $mdThemingProvider.theme('default')
+    .primaryPalette('indigo')
+    .accentPalette('red');
 
     $routeProvider
         .when('/', {
@@ -18,5 +23,5 @@ app.config(function ($routeProvider) {
             controller: 'TasksController as vm'
         })
         .otherwise( { template: '<h1>404</h1>' });
-});
+}]);
 
