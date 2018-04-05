@@ -1,26 +1,31 @@
-<h1>Client/Project View</h1>
+<md-content class="viewContent"    
+            flex layout-padding>
+    
+    <h1>Client/Project View</h1>
+    
+    <table>
+        <thead>
+            <th>Client</th>
+            <th>Project</th>
+            <th>Task</th>
+            <th>Task Billable Hours</th>
+            <th>[Remove TASK]</th>
+            <th>[Remove PROJECT]</th>
+            <th>[Remove CLIENT]</th>
+        </thead>
+    
+        <!-- data input goes here -->
+        <tbody ng-repeat="fullObject in vm.fullTable.list">
+            <tr>
+                <td>{{fullObject.client}}</td>
+                <td>{{fullObject.project}}</td>
+                <td>{{fullObject.task}}</td>
+                <td>{{fullObject.act_time}}</td>
+                <td><button ng-click="vm.deleteTask(fullObject.task_id)">Remove Task</button></td>
+                <td><button ng-click="vm.deleteProject(fullObject.project_id)">Remove Task</button></td>
+                <td><button ng-click="vm.deleteTask(fullObject.task_id)">Remove Task</button></td>
+            </tr>
+        </tbody>
+    </table>
 
-<table>
-    <thead>
-        <th>Client</th>
-        <th>Project</th>
-        <th>Task</th>
-        <th>Task Billable Hours</th>
-        <th>[Remove TASK]</th>
-        <th>[Remove PROJECT]</th>
-        <th>[Remove CLIENT]</th>
-    </thead>
-
-    <!-- data input goes here -->
-    <tbody ng-repeat="fullObject in vm.fullTable.list">
-        <tr>
-            <td>{{fullObject.client}}</td>
-            <td>{{fullObject.project}}</td>
-            <td>{{fullObject.task}}</td>
-            <td>{{fullObject.act_time}}</td>
-            <td><button ng-click="vm.deleteTask(fullObject.task_id)">Remove Task</button></td>
-            <td><button ng-click="vm.deleteProject(fullObject.project_id)">Remove Task</button></td>
-            <td><button ng-click="vm.deleteTask(fullObject.task_id)">Remove Task</button></td>
-        </tr>
-    </tbody>
-</table>
+</md-content>

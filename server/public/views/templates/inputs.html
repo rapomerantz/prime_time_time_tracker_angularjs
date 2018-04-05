@@ -1,13 +1,14 @@
 <md-content ng-controller="InputController as vm">
 
 
-    <div id="clientProjectInputs">
+    <div id="inputs">
 
         <form flex layout="row" ng-submit="vm.addClient(vm.newClient)">
             <md-input-container class="">
                 <input ng-model="vm.newClient.client" type="text" placeholder="New Client">
             </md-input-container>
-            <md-button type="submit">Submit</md-button>
+            <md-button  class="md-primary md-raised"
+                        type="submit">Submit</md-button>
         </form>
         
         <form flex layout="row"  ng-submit="vm.addProject(vm.newProject)">
