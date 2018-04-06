@@ -1,6 +1,44 @@
-<md-content ng-controller="EditController as vm">
+    <md-dialog>
 
-
+        <!-- TASK INPUT -->
+        <div  layout="row" id="addTaskInput">
     
+            <form ng-submit="vm.addTask(vm.newTask)">
+                <!-- SELECT CLIENTS -->
+                <md-input-container>
+                    <select ng-model="vm.newTask.client_id">
+                            <option selected value="null">---Select client---</option>
+                            <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</option>
+                    </select>    
+                </md-input-container>
+    
+                <!-- SELECT PROJECTS -->
+                    <md-input-container>
+                        <select ng-model="vm.newTask.project_id">
+                                <option selected value="null">---Select project---</option>
+                                <option ng-repeat="project in vm.projectList.list" value="{{project.id}}">{{project.project}}</option>
+                        </select>    
+                    </md-input-container>
+                    
+                    <md-input-container>
+                        <input ng-model="vm.newTask.task" type="text" placeholder="New task">
+                    </md-input-container>
+                
+                
+                    <!-- TIME INPUTS -->
+                    <md-input-container>
+                        <input ng-model="vm.newTask.estTime" type="number" placeholder="Estimated Time (in hours)">
+                    </md-input-container>
+        
+                    <md-input-container>
+                        <input ng-model="vm.newTask.actTime" type="number" placeholder="Actual Time (if applicable)">
+                    </md-input-container>
+        
+                    <!-- SUBMIT BUTTON -->
+                    <md-button class="md-raised" type="submit">Submit Project</md-button>
+                
+            </form>
+                
+        </div>
 
-</md-content>
+    </md-dialog>

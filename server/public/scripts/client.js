@@ -22,6 +22,10 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
             templateUrl: 'views/tasks.html',
             controller: 'TasksController as vm'
         })
+        .when('/reports', {
+            templateUrl: 'views/reports.html',
+            controller: 'ReportsController as vm'
+        })
         .otherwise( { template: '<h1>404</h1>' });
 }]);
 

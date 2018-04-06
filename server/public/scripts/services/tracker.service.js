@@ -138,7 +138,7 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
         var confirm = $mdDialog.confirm()
         .title('Are you sure you want to remove this project?')
         .textContent('This will remove all associated tasks as well.')
-        .ariaLabel('Delete Task?')
+        .ariaLabel('Delete project?')
         .targetEvent(ev)
         .ok('Yes, I\'m sure')
         .cancel('Nevermind');
@@ -147,11 +147,11 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
             //function to run on confirm
             $http.delete('/projects/' + projectId)
             .then(function(response) {
-                console.log("successful DELETE /tasks");
+                console.log("successful DELETE /clients");
                 self.collectProjects(); 
             })
             .catch(function(error) {
-                console.log("error in DELETE /tasks", error);
+                console.log("error in DELETE /clients", error);
             })
         }, function() {
             //function to run cancel
@@ -159,6 +159,61 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
     }
 
 
+//DELETE client from /clients
+    self.deleteClient = function (clientId, ev) {
+        //mdDialog 
+        var confirm = $mdDialog.confirm()
+        .title('Are you sure you want to remove this client?')
+        .textContent('This will remove all associated projects & tasks as well.')
+        .ariaLabel('Delete client?')
+        .targetEvent(ev)
+        .ok('Yes, I\'m sure')
+        .cancel('Nevermind');
+
+        $mdDialog.show(confirm).then(function() {
+            //function to run on confirm
+            $http.delete('/clients/' + clientId)
+            .then(function(response) {
+                console.log("successful DELETE /clients");
+                self.collectProjects(); 
+            })
+            .catch(function(error) {
+                console.log("error in DELETE /clients", error);
+            })
+        }, function() {
+            //function to run cancel
+        });
+    }    
+
+
+
+//PUT function for client.html
+    self.editTask = function (fullObject, ev) {
+        //mdDialog options
+        $mdDialog.show({
+            controller: 'EditController as vm',
+            templateUrl: '/views/templates/editMenu.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+          })
+          .then(function(answer) {
+            $http({
+                method: "PUT", 
+                url: '/clients/' 
+            })
+            .then(function(response) {
+                console.log("successful DELETE /clients");
+                self.collectProjects(); 
+            })
+            .catch(function(error) {
+                console.log("error in DELETE /clients", error);
+            })
+
+          }, function() {
+            $scope.status = 'You cancelled the dialog.';
+          });
+    }    
 
 
 

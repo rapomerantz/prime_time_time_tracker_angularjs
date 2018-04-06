@@ -4,24 +4,27 @@ Extended Angular Project - Time tracking app
 
 
 ```SQL 
-CREATE TABLE client_project (
-    id SERIAL PRIMARY KEY,
-    client INT REFERENCES "clients",
-    project varchar(120)
-);
+CREATE SCHEMA time_tracker;
 
-CREATE TABLE clients (
+CREATE TABLE time_tracker.clients (
     id SERIAL PRIMARY KEY,
 	client varchar (120) 
 );
 
-CREATE TABLE project_task (
+CREATE TABLE time_tracker.client_project (
+    id SERIAL PRIMARY KEY,
+    client_id INT REFERENCES time_tracker.clients (id) ON DELETE CASCADE,
+    project varchar(120)
+);
+
+CREATE TABLE time_tracker.project_task (
 	id SERIAL PRIMARY KEY,
-	project_id INT REFERENCES "client_project",
+	project_id INT REFERENCES time_tracker.client_project (id) ON DELETE CASCADE,
 	task varchar (80),
 	est_time INT,
 	act_time INT
 );
+
 
 INSERT INTO clients (client)
 VALUES ('Prime'), ('Dairy Queen'), ('McDonalds'), ('Chipotle'), ('Wells Fargo');

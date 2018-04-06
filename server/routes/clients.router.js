@@ -31,6 +31,25 @@ router.get('/', (req,res) => {
         })  
 })
 
+// clients DELETE 
+    router.delete('/:id', (req,res) => {
+        let clientId = req.params.id
+        console.log('in DELETE /client, clienId ', clientId);
+        let queryText = `DELETE FROM time_tracker.clients WHERE id = ${clientId};`;
+        pool.query(queryText)
+            .then((result) => {
+                console.log('successful DELETE /tasks', result);
+                res.sendStatus(200);
+            })
+            .catch((error) => {
+                console.log('error in /tasks DELETE', error);
+                res.sendStatus(500)
+            })  
+    })
+
+
+
+
 // client/fullTable GET route
 router.get('/fullTable', (req,res) => {
     console.log('GET /clients/fullTable');

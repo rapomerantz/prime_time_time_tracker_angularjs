@@ -39,7 +39,7 @@
             <md-input-container>
                 <select ng-model="vm.newTask.client_id">
                         <option selected value="null">---Select client---</option>
-                        <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</option>
+                        <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.id}} {{client.client}}</option>
                 </select>    
             </md-input-container>
 
