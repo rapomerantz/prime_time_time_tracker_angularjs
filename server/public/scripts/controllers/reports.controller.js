@@ -30,7 +30,7 @@ app.controller('ReportsController', ['TrackerService', '$http', function (Tracke
         let hoursArray = fullTable.map((e, i) => {
             return e.act_time; 
         })
-        
+    
         var ctx = angular.element( document.querySelector( '#myChart' ) );
         var myChart = new Chart(ctx, {
             type: 'bar',
