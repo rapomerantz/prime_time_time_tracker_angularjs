@@ -10,12 +10,12 @@
                 <th>Task</th>
                 <th>Task Est. Hours</th>
                 <th>Task Actual Hours</th>
-                <th>[REMOVE TASK]</th>
+                <th></th>
                 <th></th>
             </thead>
         
             <!-- data input goes here -->
-            <tbody ng-repeat="fullObject in vm.fullTable.list">
+            <tbody ng-repeat="fullObject in vm.fullTable.list | orderBy: 'client'">
                 <tr>
                     <td><md-button class="md-warn" ng-click="vm.editTask(vm.fullObject, $event)">Edit</md-button></td>
                     <td>{{fullObject.client}}</td>

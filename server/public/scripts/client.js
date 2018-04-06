@@ -7,7 +7,7 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
 
 
     $mdThemingProvider.theme('default')
-    .primaryPalette('amber')
+    .primaryPalette('red')
     .accentPalette('yellow');
 
     $routeProvider

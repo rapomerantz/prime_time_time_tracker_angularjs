@@ -37,7 +37,7 @@ app.controller('ReportsController', ['TrackerService', '$http', function (Tracke
             data: {
                 labels: clientArray,
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Billable Hours by Client',
                     data: hoursArray,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
