@@ -7,8 +7,8 @@ router.post('/', (req,res) => {
     console.log('POST /projects', req.body);
     let newProject = req.body;
     let queryText = `INSERT INTO client_project (client_id, project) 
-                    VALUES ('${newProject.client_id}', '${newProject.project}')`;
-    pool.query(queryText)
+                    VALUES ($1, $2)`;
+    pool.query(queryText, [newProject.client_id, newProject.project])
         .then((result) => {
             res.sendStatus(201);
         })

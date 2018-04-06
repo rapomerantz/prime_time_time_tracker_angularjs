@@ -5,9 +5,9 @@ const pool = require('../modules/pool');
 // client POST route
 router.post('/', (req,res) => {
     console.log('POST /clients', req.body);
-    let newClient = req.body;
-    let queryText = `INSERT INTO "clients" (client) VALUES ('${newClient.client}')`;
-    pool.query(queryText)
+    let newClient = req.body.client;
+    let queryText = `INSERT INTO "clients" (client) VALUES ($1)`;
+    pool.query(queryText, [newClient])
         .then((result) => {
             res.sendStatus(201);
         })

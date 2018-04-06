@@ -20,7 +20,8 @@ app.controller('InputController', ['TrackerService', function (TrackerService) {
     self.getProjects(); 
     self.getTasks(); 
 
-
+    console.log(self.clientList);
+    
 //END OF INPUT CONTROLLER
 }])
 

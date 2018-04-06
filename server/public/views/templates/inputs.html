@@ -1,29 +1,31 @@
-<md-content layout="row" id="inputs" ng-controller="InputController as vm">
-    <div  id="logo">
-    </div>
+<md-content layout="column" id="inputs" ng-controller="InputController as vm">
+    
+    <!-- <div  id="logo">
+    </div> -->
 
     <div>
         <!-- CLIENT INPUT -->
-        <form ng-hide="true" flex layout="row" ng-submit="vm.addClient(vm.newClient)">
+        <form flex layout="row" ng-submit="vm.addClient(vm.newClient)">
             <md-input-container class="">
                 <input ng-model="vm.newClient.client" type="text" placeholder="New Client">
             </md-input-container>
-            <md-button  class="md-primary md-raised"
+            <md-button  class=" md-raised"
                         type="submit">Submit</md-button>
         </form>
         
         <!-- PROJECT INPUT  -->
-        <form ng-hide="true" flex layout="row"  ng-submit="vm.addProject(vm.newProject)">
+        <form flex layout="row"  ng-submit="vm.addProject(vm.newProject)">
             <md-input-container class="">
-                <md-select ng-model="vm.newProject.client_id">
-                    <md-option value="">---Select client---</md-option>
-                    <md-option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</md-option>
-                </md-select>
+                <select ng-model="vm.newProject.client_id">
+                    <option selected value="null">---Select client---</option>
+                    <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</option>
+                </select>
             </md-input-container>
             <md-input-container class="">
                 <input ng-model="vm.newProject.project" type="text" placeholder="Name of Project">
             </md-input-container>
-            <button type="submit">Submit</button>
+            <md-button class="md-raised" 
+                        type="submit">Submit</md-button>
         </form>
 
     </div>
@@ -35,18 +37,18 @@
         <form ng-submit="vm.addTask(vm.newTask)">
             <!-- SELECT CLIENTS -->
             <md-input-container>
-                <md-select ng-model="vm.newTask.client_id">
-                        <md-option selected value="null">---Select client---</md-option>
-                        <md-option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</md-option>
-                </md-select>    
+                <select ng-model="vm.newTask.client_id">
+                        <option selected value="null">---Select client---</option>
+                        <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</option>
+                </select>    
             </md-input-container>
 
             <!-- SELECT PROJECTS -->
                 <md-input-container>
-                    <md-select ng-model="vm.newTask.project_id">
-                            <md-option selected value="null">---Select project---</md-option>
-                            <md-option ng-repeat="project in vm.projectList.list" value="{{project.id}}">{{project.project}}</md-option>
-                    </md-select>    
+                    <select ng-model="vm.newTask.project_id">
+                            <option selected value="null">---Select project---</option>
+                            <option ng-repeat="project in vm.projectList.list" value="{{project.id}}">{{project.project}}</option>
+                    </select>    
                 </md-input-container>
                 
                 <md-input-container>
@@ -64,7 +66,7 @@
                 </md-input-container>
     
                 <!-- SUBMIT BUTTON -->
-                <md-button type="submit">Submit Project</md-button>
+                <md-button class="md-raised" type="submit">Submit Project</md-button>
           
         </form>
         
