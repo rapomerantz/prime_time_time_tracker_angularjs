@@ -21,7 +21,7 @@ app.controller('ClientsController', ['TrackerService', '$http', function (Tracke
 
     //DELETE functions from service 
     self.deleteTask = TrackerService.deleteTask; 
-
+    self.deleteProject = TrackerService.deleteProject;
 
 //Functions called upon load
     self.collectProjects(); 

@@ -11,7 +11,7 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
 
 //GET for fullTable list
     self.collectProjects = function () {
-        // console.log('collecting projects');
+        console.log('collecting projects');
         $http.get('/clients/fullTable')
         .then(function(response) {
             console.log("successful GET /clients/fullTable", response.data);
@@ -30,6 +30,7 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
         .then(function(response) {
             // console.log("successful POST /clients");
             self.getClients(); 
+            self.collectProjects(); 
         })
         .catch(function(error) {
             console.log("error in POST /clients", error);
@@ -56,6 +57,7 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
         .then(function(response) {
             // console.log("successful POST /projects");
             self.getProjects(); 
+            self.collectProjects(); 
         })
         .catch(function(error) {
             console.log("error in POST /projects", error);
@@ -83,6 +85,7 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
         .then(function(response) {
             // console.log("successful POST /tasks");
             self.getTasks(); 
+            self.collectProjects(); 
         })
         .catch(function(error) {
             console.log("error in POST /tasks", error);
@@ -118,7 +121,6 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
             //function to run on confirm
             $http.delete('/tasks/' + taskId)
             .then(function(response) {
-                $scope.status = 'Task removed.';
                 console.log("successful DELETE /tasks");
                 self.collectProjects(); 
             })
@@ -127,12 +129,36 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
             })
         }, function() {
             //function to run cancel
-            $scope.status = 'You decided to keep your debt.';
         });
-
-
-
     }
+
+//DELETE project from /projects
+    self.deleteProject = function (projectId, ev) {
+        //mdDialog 
+        var confirm = $mdDialog.confirm()
+        .title('Are you sure you want to remove this project?')
+        .textContent('This will remove all associated tasks as well.')
+        .ariaLabel('Delete Task?')
+        .targetEvent(ev)
+        .ok('Yes, I\'m sure')
+        .cancel('Nevermind');
+
+        $mdDialog.show(confirm).then(function() {
+            //function to run on confirm
+            $http.delete('/projects/' + projectId)
+            .then(function(response) {
+                console.log("successful DELETE /tasks");
+                self.collectProjects(); 
+            })
+            .catch(function(error) {
+                console.log("error in DELETE /tasks", error);
+            })
+        }, function() {
+            //function to run cancel
+        });
+    }
+
+
 
 
 
