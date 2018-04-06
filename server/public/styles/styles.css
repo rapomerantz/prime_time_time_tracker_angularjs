@@ -11,6 +11,13 @@ th, td {
 
 tr:hover {background-color:#f3d4083d;}
 
+
+.chart-container {
+    width: 400px;
+    height: 400px;
+    
+}
+
 .nav {
     width: 100%;
     background-color: #333;
@@ -78,6 +85,10 @@ md-select {
     margin-bottom: 20px;
     margin-left: 25px;
     border-radius: 5px;
+}
+
+#myChart {
+
 }
 
 #navRight {
