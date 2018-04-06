@@ -16,6 +16,7 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
         .then(function(response) {
             console.log("successful GET /clients/fullTable", response.data);
             self.fullTable.list = response.data; 
+            
         })
         .catch(function(error) {
             console.log("error in GET /clients", error);
@@ -215,6 +216,17 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
           });
     }    
 
+
+
+
+
+
+
+
+
+
+
+    
 
 
 
