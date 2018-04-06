@@ -1,4 +1,4 @@
-let app = angular.module('App', ['ngRoute', 'ngMaterial']); 
+let app = angular.module('App', ['ngRoute', 'ngMaterial', 'ngMessages']); 
 
 
 
