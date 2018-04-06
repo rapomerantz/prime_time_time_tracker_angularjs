@@ -5,11 +5,12 @@
     
     <table>
         <thead>
+            <th></th>
             <th>Client</th>
             <th>Project</th>
             <th>Task</th>
             <th>Task Billable Hours</th>
-            <th>[Remove TASK]</th>
+            <th></th>
             <th>[Remove PROJECT]</th>
             <th>[Remove CLIENT]</th>
         </thead>
@@ -17,13 +18,14 @@
         <!-- data input goes here -->
         <tbody ng-repeat="fullObject in vm.fullTable.list">
             <tr>
+                <td><md-button class="md-warn " ng-click="vm.editTask(vm.fullObject)">Edit</md-button></td>
                 <td>{{fullObject.client}}</td>
                 <td>{{fullObject.project}}</td>
                 <td>{{fullObject.task}}</td>
                 <td>{{fullObject.act_time}}</td>
-                <td><button ng-click="vm.deleteTask(fullObject.task_id)">Remove Task</button></td>
-                <td><button ng-click="vm.deleteProject(fullObject.project_id)">Remove Task</button></td>
-                <td><button ng-click="vm.deleteTask(fullObject.task_id)">Remove Task</button></td>
+                <td><md-button class="md-warn md-secondary" ng-click="vm.deleteTask(fullObject.task_id, $event)">Remove Task</md-button></td>
+                <td><md-button class="md-warn md-secondary" ng-click="vm.deleteProject(fullObject.project_id)">Remove Task</md-button></td>
+                <td><md-button class="md-warn md-secondary" ng-click="vm.deleteTask(fullObject.task_id)">Remove Task</md-button></td>
             </tr>
         </tbody>
     </table>

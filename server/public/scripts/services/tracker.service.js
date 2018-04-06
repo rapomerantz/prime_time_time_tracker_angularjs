@@ -1,4 +1,4 @@
-app.service('TrackerService', ['$http', function($http) {
+app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
     console.log('TrackerService is loaded');
     let self = this; 
 
@@ -104,16 +104,34 @@ app.service('TrackerService', ['$http', function($http) {
     }
 
 //DELETE task from /tasks
-    self.deleteTask = function (taskId) {
-        console.log('in deleteTask, taskId', taskId);
-        $http.delete('/tasks/' + taskId)
-        .then(function(response) {
-            console.log("successful DELETE /tasks");
-            self.collectProjects(); 
-        })
-        .catch(function(error) {
-            console.log("error in DELETE /tasks", error);
-        })
+    self.deleteTask = function (taskId, ev) {
+        //mdDialog 
+        var confirm = $mdDialog.confirm()
+        .title('Are you sure you want to delete this task?')
+        .textContent('This cannot be undone.')
+        .ariaLabel('Delete Task?')
+        .targetEvent(ev)
+        .ok('Yes, I\'m sure')
+        .cancel('Nevermind');
+
+        $mdDialog.show(confirm).then(function() {
+            //function to run on confirm
+            $http.delete('/tasks/' + taskId)
+            .then(function(response) {
+                $scope.status = 'Task removed.';
+                console.log("successful DELETE /tasks");
+                self.collectProjects(); 
+            })
+            .catch(function(error) {
+                console.log("error in DELETE /tasks", error);
+            })
+        }, function() {
+            //function to run cancel
+            $scope.status = 'You decided to keep your debt.';
+        });
+
+
+
     }
 
 
