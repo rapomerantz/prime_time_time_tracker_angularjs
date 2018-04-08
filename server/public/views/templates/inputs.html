@@ -30,10 +30,10 @@
         <!-- PROJECT INPUT  -->
         <form ng-if="vm.projectInShow" flex layout="row"  ng-submit="vm.addProject(vm.newProject)">
             <md-input-container class="inputInput">
-                <select ng-model="vm.newProject.client_id">
-                    <option selected value="null">---Select client---</option>
-                    <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</option>
-                </select>
+                <md-select ng-model="vm.newProject.client_id">
+                    <md-option selected value="null">---Select client---</md-option>
+                    <md-option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</md-option>
+                </md-select>
             </md-input-container>
             <md-input-container class="inputInput">
                 <input ng-model="vm.newProject.project" type="text" placeholder="Name of Project">
@@ -51,18 +51,19 @@
         <form ng-if="vm.taskInShow"  layout="row" id="addTaskInput" ng-submit="vm.addTask(vm.newTask)">
             <!-- SELECT CLIENTS -->
             <md-input-container class="inputInput">
-                <select ng-model="vm.newTask.client_id">
-                        <option selected value="null">---Select client---</option>
-                        <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.id}} {{client.client}}</option>
-                </select>    
+                <md-select ng-model="vm.newTask.client_id">
+                        <md-option selected value="null">---Select client---</md-option>
+                        <md-option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.id}} {{client.client}}</md-option>
+                </md-select>    
             </md-input-container>
-
+            <span></span>
             <!-- SELECT PROJECTS -->
                 <md-input-container class="inputInput">
-                    <select ng-model="vm.newTask.project_id">
-                            <option selected value="null">---Select project---</option>
-                            <option ng-repeat="project in vm.projectList.list" value="{{project.id}}">{{project.project}}</option>
-                    </select>    
+                    <!-- possible ng-click to filter projects based on client ng-click="vm.filterProjects(vm.newTask.client_id, vm.projectList.list)" -->
+                    <md-select class="md-primary" ng-model="vm.newTask.project_id">
+                            <md-option selected value="null">---Select project---</md-option>
+                            <md-option ng-repeat="project in vm.projectList.list" value="{{project.id}}">{{project.project}}</md-option>
+                    </md-select>    
                 </md-input-container>
                 
                 <md-input-container class="inputInput">

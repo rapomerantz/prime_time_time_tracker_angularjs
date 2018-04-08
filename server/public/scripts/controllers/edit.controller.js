@@ -2,6 +2,12 @@ app.controller('EditController', ['TrackerService', function (TrackerService) {
     console.log('EditController has been loaded');
     let self = this;
 
+    self.editObject = TrackerService.editObject;
+    console.log('EditController editObject:', self.editObject);
+    
+
+
+
     self.clientList = TrackerService.clientList; 
     self.projectList = TrackerService.projectList;
     self.taskList = TrackerService.taskList; 

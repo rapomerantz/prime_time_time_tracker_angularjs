@@ -1,13 +1,19 @@
-    <md-dialog>
+<!-- edit object: vm.editObject -->
+
+<md-dialog id="editDialog">
+
+        <h3 layout="row">Edit Task:</h3>
 
         <!-- TASK INPUT -->
-        <div  layout="row" id="addTaskInput">
+        <div layout="column">
     
-            <form ng-submit="vm.addTask(vm.newTask)">
+            <form ng-submit="vm.updateTask(vm.taskToUpdate)">
+            <div layout="row">
+                
                 <!-- SELECT CLIENTS -->
                 <md-input-container>
                     <select ng-model="vm.newTask.client_id">
-                            <option selected value="null">---Select client---</option>
+                            <option selected value="null">{{vm.editObject.client}}</option>
                             <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</option>
                     </select>    
                 </md-input-container>
@@ -20,11 +26,14 @@
                         </select>    
                     </md-input-container>
                     
+            </div>    
+
+                    <!-- TASK INPUT -->
                     <md-input-container>
-                        <input ng-model="vm.newTask.task" type="text" placeholder="New task">
+                        <input ng-init="vm.editObject" ng-model="vm.taskToUpdate.task" type="text" >
                     </md-input-container>
                 
-                
+                <div layout="row">
                     <!-- TIME INPUTS -->
                     <md-input-container>
                         <input ng-model="vm.newTask.estTime" type="number" placeholder="Estimated Time (in hours)">
@@ -33,9 +42,9 @@
                     <md-input-container>
                         <input ng-model="vm.newTask.actTime" type="number" placeholder="Actual Time (if applicable)">
                     </md-input-container>
-        
+                </div>
                     <!-- SUBMIT BUTTON -->
-                    <md-button class="md-raised" type="submit">Submit Project</md-button>
+                    <md-button layout="row" class="md-raised" type="submit">Submit Project</md-button>
                 
             </form>
                 

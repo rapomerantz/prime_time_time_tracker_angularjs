@@ -1,4 +1,5 @@
-app.controller('ReportsController', ['TrackerService', '$http', function (TrackerService, $http) {
+app.controller('ReportsController', ['TrackerService', '$http', 
+                                    function (TrackerService, $http) {
     console.log('ReportsController has been loaded');
     let self = this;
 
@@ -20,6 +21,8 @@ app.controller('ReportsController', ['TrackerService', '$http', function (Tracke
     self.getClients(); 
     self.getProjects(); 
     self.getTasks(); 
+
+    console.log('fullTable', self.fullTable);
     
 
     self.makeChart = function () {
@@ -71,7 +74,7 @@ app.controller('ReportsController', ['TrackerService', '$http', function (Tracke
         
     }
 
-    
+    self.makeChart(); 
 
 
 

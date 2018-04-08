@@ -1,3 +1,7 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -28,6 +32,7 @@ tr:hover {background-color:#f3d4083d;}
     /* max-width: 780px; */
     margin: 0 auto;
     padding: 0;
+    padding-top: 15px; 
     overflow: hidden;
     background-color: #333;
 }
@@ -37,10 +42,11 @@ tr:hover {background-color:#f3d4083d;}
 }
 
 .nav li a {
+    font-size: 18px; 
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    /* padding: 14px 16px; */
     text-decoration: none;
 }
 
@@ -52,8 +58,9 @@ tr:hover {background-color:#f3d4083d;}
 
 
 .viewContent {
-    background-color: #FFF9C4; 
+    background-color: rgb(253, 252, 225); 
     padding: 50px;  
+    min-height: 100%; 
 
 }
 
@@ -88,11 +95,18 @@ tr:hover {background-color:#f3d4083d;}
 
 }
 
+#editDialog{
+    padding: 15px; 
+
+}
+
 #inputNav {
     display: block;
     color: white;
     text-align: center;
-    /* padding: 14px 16px; */
+    /* padding-top: 5px; 
+    padding-bottom: 15px; 
+    padding-left: 10px;  */
     text-decoration: none;
 }
 
@@ -106,9 +120,6 @@ tr:hover {background-color:#f3d4083d;}
     border-radius: 5px;
 }
 
-#myChart {
-
-}
 
 #navRight {
     float: right; 

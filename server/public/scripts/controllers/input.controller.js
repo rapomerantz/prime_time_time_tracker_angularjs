@@ -5,25 +5,31 @@ app.controller('InputController', ['TrackerService', function (TrackerService) {
     self.projectInShow = false; 
     self.taskInShow = false; 
 
+    // self.filterProjects = function(client_id, projectList) {
+    //     console.log('in filterProjects, client_id:', client_id, 
+    //                 'projectList:', projectList);
+    //     for (let each of projectList) {
+    //         console.log(projectList);
+            
+    //     }
+    // }
+
 
 //functions hiding and showing CLIENT/PROJECT/TASK inputs    
     self.showClientInput = function () {
         self.clientInShow = !self.clientInShow;
         self.projectInShow = false; 
         self.taskInShow = false; 
-
     }
     self.showProjectInput = function () {
         self.clientInShow = false; 
         self.projectInShow = !self.projectInShow;
         self.taskInShow = false; 
-
     }
     self.showTaskInput = function () {
         self.clientInShow = false; 
         self.projectInShow = false; 
         self.taskInShow = !self.taskInShow;
-
     }
 
     self.clientList = TrackerService.clientList; 

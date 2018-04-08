@@ -1,4 +1,5 @@
-app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
+app.service('TrackerService', ['$http','$mdDialog', '$mdToast', 
+                                function($http, $mdDialog, $mdToast) {
     console.log('TrackerService is loaded');
     let self = this; 
 
@@ -7,6 +8,7 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
     self.projectList = {list: []}; 
     self.taskList = {list: []}; 
     self.fullTable = { list: [] }; 
+    self.editObject = { list: [] };
 
 
 //GET for fullTable list
@@ -30,6 +32,7 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
         $http.post('/clients', newClient)
         .then(function(response) {
             // console.log("successful POST /clients");
+            showToast('New client added'); 
             self.getClients(); 
             self.collectProjects(); 
         })
@@ -57,6 +60,7 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
         $http.post('/projects', newProject)
         .then(function(response) {
             // console.log("successful POST /projects");
+            showToast('New project added');
             self.getProjects(); 
             self.collectProjects(); 
         })
@@ -85,6 +89,7 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
         $http.post('/tasks', newTask)
         .then(function(response) {
             // console.log("successful POST /tasks");
+            showToast('New task added');
             self.getTasks(); 
             self.collectProjects(); 
         })
@@ -123,6 +128,8 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
             $http.delete('/tasks/' + taskId)
             .then(function(response) {
                 console.log("successful DELETE /tasks");
+                //TOAST upon successful delete /tasks
+                showToast('Task removed'); 
                 self.collectProjects(); 
             })
             .catch(function(error) {
@@ -149,6 +156,8 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
             $http.delete('/projects/' + projectId)
             .then(function(response) {
                 console.log("successful DELETE /clients");
+                //TOAST upon successful delete /projects 
+                showToast('Project removed'); 
                 self.collectProjects(); 
             })
             .catch(function(error) {
@@ -176,6 +185,8 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
             $http.delete('/clients/' + clientId)
             .then(function(response) {
                 console.log("successful DELETE /clients");
+                //TOAST upon successful delete /clients
+                showToast('Client removed'); 
                 self.collectProjects(); 
             })
             .catch(function(error) {
@@ -190,6 +201,10 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
 
 //PUT function for client.html
     self.editTask = function (fullObject, ev) {
+        self.editObject = fullObject; 
+        console.log(self.editObject);
+        
+
         //mdDialog options
         $mdDialog.show({
             controller: 'EditController as vm',
@@ -201,7 +216,8 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
           .then(function(answer) {
             $http({
                 method: "PUT", 
-                url: '/clients/' 
+                url: '/clients/',
+                data: fullObject
             })
             .then(function(response) {
                 console.log("successful DELETE /clients");
@@ -217,8 +233,14 @@ app.service('TrackerService', ['$http','$mdDialog', function($http, $mdDialog) {
     }    
 
 
-
-
+//SHOW TOAST FUNCTION
+    function showToast (textToDisplay) {
+        $mdToast.show( //display the toast
+            $mdToast.simple()//build the toast
+                .textContent(textToDisplay)
+                .hideDelay(1500)
+            );
+    };
 
 
 
