@@ -1,6 +1,28 @@
-# weekend5_time_tracker
-Extended Angular Project - Time tracking app
+# PRIME TIME TIME TRACKER
 
+The PRIME TIME TIME TRACKER single-page application allows the user to track clients, projects, tasks, estimated hours, and actual billable hours with ease. Billable hours can be displayed in the form of a bar graph. Clients, projects, and tasks can be added and removed from the databse simply and efficently.
+
+
+
+Live on Heroku: 
+https://frozen-citadel-18375.herokuapp.com/#!/clients
+
+![start](assets/screenshot1.png)
+![start](assets/screenshot2.png)
+
+
+##Built with:
+- AngularJS
+- PostgreSQL 
+- Node.JS
+- Express
+- AngularJS Material
+- ChartJS
+
+
+
+### Setup: 
+To run this app on your local server simply run 'npm install', create and populate these tables in PostgreSQL, and open 'http://localhost:5001/' on your browser of choice. 
 
 
 ```SQL 
@@ -38,3 +60,4 @@ VALUES (2, 'Evaluate old server', 15, 15), (1, 'Scope project', 15, 25), (1, 'De
 ```
 
 
+### Handcrafted by R. Atticus Pomerantz - April 2018
