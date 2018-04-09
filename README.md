@@ -1,6 +1,6 @@
 # PRIME TIME TIME TRACKER
 
-The PRIME TIME TIME TRACKER single-page application allows the user to track clients, projects, tasks, estimated hours, and actual billable hours with ease. Billable hours can be displayed in the form of a bar graph. Clients, projects, and tasks can be added and removed from the databse simply and efficently.
+The PRIME TIME TIME TRACKER single-page application allows the user to track clients, projects, tasks, estimated hours, and actual billable hours with ease. Billable hours can be displayed in the form of a bar graph. Clients, projects, and tasks can be added and removed from the databse simply and efficently. A cascading delete automatically removes all projects and tasks associated with a removed client. 
 
 
 
