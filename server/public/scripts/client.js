@@ -12,7 +12,7 @@ app.config(['$routeProvider', '$mdThemingProvider', function ($routeProvider, $m
 
     $routeProvider
         .when('/', {
-            redirectTo: '/projects'
+            redirectTo: '/clients'
         })
         .when('/clients', {
             templateUrl: 'views/clients.html',
