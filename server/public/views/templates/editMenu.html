@@ -12,7 +12,7 @@
                 
                 <!-- SELECT CLIENTS -->
                 <md-input-container>
-                    <select ng-model="vm.newTask.client_id">
+                    <select ng-model="vm.taskToUpdate.client_id">
                             <option selected value="null">{{vm.editObject.client}}</option>
                             <option ng-repeat="client in vm.clientList.list" value="{{client.id}}">{{client.client}}</option>
                     </select>    
@@ -20,7 +20,7 @@
     
                 <!-- SELECT PROJECTS -->
                     <md-input-container>
-                        <select ng-model="vm.newTask.project_id">
+                        <select ng-model="vm.taskToUpdate.project_id">
                                 <option selected value="null">---Select project---</option>
                                 <option ng-repeat="project in vm.projectList.list" value="{{project.id}}">{{project.project}}</option>
                         </select>    
@@ -36,15 +36,15 @@
                 <div layout="row">
                     <!-- TIME INPUTS -->
                     <md-input-container>
-                        <input ng-model="vm.newTask.estTime" type="number" placeholder="Estimated Time (in hours)">
+                        <input ng-model="vm.taskToUpdate.estTime" type="number" placeholder="Estimated Time (in hours)">
                     </md-input-container>
         
                     <md-input-container>
-                        <input ng-model="vm.newTask.actTime" type="number" placeholder="Actual Time (if applicable)">
+                        <input ng-model="vm.taskToUpdate.actTime" type="number" placeholder="Actual Time (if applicable)">
                     </md-input-container>
                 </div>
                     <!-- SUBMIT BUTTON -->
-                    <md-button layout="row" class="md-raised" type="submit">Submit Project</md-button>
+                    <md-button layout="row" class="md-raised" type="submit">Edit</md-button>
                 
             </form>
                 

@@ -24,6 +24,7 @@ app.controller('ClientsController', ['TrackerService', '$http', function (Tracke
     self.deleteProject = TrackerService.deleteProject;
     self.deleteClient = TrackerService.deleteClient;
 
+
     //EDIT function
     self.editTask = TrackerService.editTask; 
 

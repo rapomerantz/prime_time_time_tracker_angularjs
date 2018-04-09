@@ -199,10 +199,10 @@ app.service('TrackerService', ['$http','$mdDialog', '$mdToast',
 
 
 
-//PUT function for client.html
+//PUT function for /clients
     self.editTask = function (fullObject, ev) {
         self.editObject = fullObject; 
-        console.log(self.editObject);
+        console.log('editTask Object:', fullObject);
         
 
         //mdDialog options
@@ -228,7 +228,7 @@ app.service('TrackerService', ['$http','$mdDialog', '$mdToast',
             })
 
           }, function() {
-            $scope.status = 'You cancelled the dialog.';
+            // $scope.status = 'You cancelled the dialog.';
           });
     }    
 

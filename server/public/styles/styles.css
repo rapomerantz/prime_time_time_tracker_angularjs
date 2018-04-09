@@ -13,8 +13,6 @@ th, td {
     border-bottom: 1px solid #ddd;
 }
 
-tr:hover {background-color:#f3d4083d;}
-
 
 .chart-container {
     width: 400px;
@@ -50,7 +48,6 @@ tr:hover {background-color:#f3d4083d;}
     text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 .nav li a:hover {
     background-color: #111;
 }
@@ -125,3 +122,16 @@ tr:hover {background-color:#f3d4083d;}
     float: right; 
     padding-right: 50px; 
 }
+
+
+
+
+
+.slide.ng-enter {
+    transition:0.5s linear all;
+    transform:translateX(1000px);
+  }
+  .slide.ng-enter.ng-enter-active {
+    transform:translateY(0);
+  }
+  

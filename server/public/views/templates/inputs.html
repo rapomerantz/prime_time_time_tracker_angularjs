@@ -20,7 +20,10 @@
 
     <div>
         <!-- CLIENT INPUT -->
-        <form ng-if="vm.clientInShow" flex layout="row" ng-submit="vm.addClient(vm.newClient)">
+        <form ng-if="vm.clientInShow" 
+                flex layout="row" 
+                ng-submit="vm.addClient(vm.newClient)"
+                >
             <md-input-container class="inputInput">
                 <input ng-model="vm.newClient.client" type="text" placeholder="New Client">
             </md-input-container>
