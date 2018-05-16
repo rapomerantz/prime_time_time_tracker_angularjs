@@ -4,7 +4,6 @@
     
     <table>
             <thead>
-                <th></th>
                 <th>Client</th>
                 <th>Project</th>
                 <th>Task</th>
@@ -17,7 +16,6 @@
             <!-- data input goes here -->
             <tbody ng-repeat="fullObject in vm.fullTable.list | orderBy: 'client'">
                 <tr>
-                    <td><md-button class="md-warn" ng-click="vm.editTask(vm.fullObject, $event)">Edit</md-button></td>
                     <td>{{fullObject.client}}</td>
                     <td>{{fullObject.project}}</td>
                     <td>{{fullObject.task}}</td>
